@@ -6,7 +6,9 @@ describe('Demo', () => {
     render(<FlexDemo />);
 
     expect(screen.queryByText('Panel Three')).toBe(null);
-    fireEvent.click(screen.getByText('Three'));
+    const tab = screen.getByText('Three');
+    fireEvent.mouseDown(tab);
+    fireEvent.mouseUp(tab);
 
     expect(screen.getByText('Panel Three')).toBeVisible();
   });
